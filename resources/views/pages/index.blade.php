@@ -47,6 +47,7 @@
         Web - Web based challenges, these are your more familar web based challenges such as those listed in the OWASP top 10<br>
         Triva - a set of question based challenges to test your triva knowledge (Google is allowed)<br>
 
+        <h3>Terms and Conditions</h3>
         Please be aware of some conditions when participating in these events: <br>
         <ul>
             <li>Do not perform any activity that is detrimental to the enjoyment of others </li>
@@ -54,6 +55,17 @@
                 some!), do not exploit it to gain advantage. Submit it to get bonus points! </li>
         </ul>
 
+        <h3>Helpful links and tools</h3>
+        <ul>
+            <li>Ida pro free: https://www.hex-rays.com/products/ida/support/download_freeware.shtml</li>
+            <li>Phython script for patching executables: stalkr.net/files/ida/idadif.py</li>
+            <li>Olly Debug: http://www.ollydbg.de/download.htm</li>
+            <li>Crypt Tool: https://www.cryptool.org/en/ </li>
+            <li>Google</li>
+        </ul>
+
+
+        <br>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
