@@ -35,12 +35,12 @@
         challenges but it touches on a number of other disiplines, such as, scripting, web development and plain old
         problem solving. <br>
 
-        <t1>What is a CTF?</t1>
+        <h3>What is a CTF?</h3><br>
 
         CTF is short for Capture the Flag. The objective is to find flags that are hidden within each challenge. 
         Unless stated otherwise each flag will take to form flag{some random value here} to aid in identification. 
 
-        <t1>What types of Challenges are on offer?</t1>
+        <h3>What types of Challenges are on offer?</h3><br>
 
         RE - Reverse Engineering, these challenges require you to take apart a program, understand it's componets and occasionally change the program logic! <br>
         Crypto - Cryptographic Challenge, these challenges require you to solve a challenge that is based on cryptography<br>
