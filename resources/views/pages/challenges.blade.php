@@ -34,9 +34,9 @@
                 </thead>
                 @foreach($data['categories'] as $category)
                     <tr>
-                        <td>{{$category['name']}}</td>
+                        
                         @foreach($category['challenges'] as $challenge)
-                            
+                            <td>{{$category['name']}}</td>
                             <td>
                                 {{$challenge['name']}}
                             </td>
