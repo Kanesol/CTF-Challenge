@@ -46,7 +46,7 @@ class DynamicController extends Controller
         }
         $directory = base_path().'/public/Challenges_Repo/';
         $files = scandir($directory);
-        var_dump($files);
+
 
         $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories,'stats' => $stats, 'files' => $files);
 
@@ -88,9 +88,9 @@ class DynamicController extends Controller
         }
         $directory = base_path().'/public/Challenges_Repo/';
         $files = scandir($directory);
-        var_dump($files);
 
-        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories,'stats' => $stats, 'files' => $files);
+
+        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories, 'stats' => $stats, 'files' => $files);
 
         
         return view("pages.challenges")->with('data', $data);
