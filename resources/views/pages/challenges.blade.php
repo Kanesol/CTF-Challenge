@@ -33,9 +33,10 @@
                     </tr>
                 </thead>
                 @foreach($data['categories'] as $category)
-                    <tr>
+                    
                         
                         @foreach($category['challenges'] as $challenge)
+                        <tr>
                             <td>{{$category['name']}}</td>
                             <td>
                                 {{$challenge['name']}}
@@ -54,8 +55,9 @@
                                     @endif
                                 @endforeach
                             </td>
+                        </tr>
                         @endforeach
-                    </tr>
+                    
                 @endforeach
             </table>
         </div>
