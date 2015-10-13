@@ -55,7 +55,7 @@ class DynamicController extends Controller
 
 
     public function challenges () {
-        $game = Game::first();
+        /*$game = Game::first();
         $categories = Category::get();
         $categories = $categories->toArray();
 
@@ -66,8 +66,33 @@ class DynamicController extends Controller
         }
 
 
-        $data = array('game' => $game, 'categories' => $categories);
+        $data = array('game' => $game, 'categories' => $categories);*/
+                $num_users = User::count();
+        $completed = Submitted_flag::count();
+        $num_challenges = Challenge::count();
 
+        $average_c = ( $completed / $num_users) / $num_challenges * 100;
+
+        $stats = array('num_users' => $num_users, 'completed' => $completed, 'average' => $average_c);
+
+        $game = Game::first();
+        $categories = Category::get();
+        $categories = $categories->toArray();
+
+
+
+        foreach($categories as $category)
+        {
+            $challenges = Challenge::where('category_id', $category['id'])->get()->toArray();
+            $categories[(int)$category['id'] - 1]['challenges'] =  $challenges;
+        }
+        $directory = base_path().'/public/Challenges_Repo/';
+        $files = scandir($directory);
+        var_dump($files);
+
+        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories,'stats' => $stats, 'files' => $files);
+
+        
         return view("pages.challenges")->with('data', $data);
     }
 

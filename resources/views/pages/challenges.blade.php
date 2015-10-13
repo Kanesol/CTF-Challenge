@@ -45,10 +45,15 @@
                             <td>
                                 {{$challenge['description']}}
                             </td>
+                            <td>
+                                @foreach($data['files'] as $filename)
+                                    @if (strpos($filename, $challenge['id'], 0) === 0)
+
+                                        {!! link_to('/Challenges_Repo/'.$filename, 'Link') !!}
+                                    @endif
+                                @endforeach
+                            </td>
                         @endforeach
-                        <td>
-                            Start
-                        </td>
                     </tr>
                 @endforeach
             </table>
