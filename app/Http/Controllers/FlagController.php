@@ -38,15 +38,27 @@ class FlagController extends Controller
 
         if(!empty($flags))
         {
-            $flags = $flags->toArray();
-            $submission['created_at'] = Carbon::now()->toDateTimeString();
-            $submission['updated_at'] = Carbon::now()->toDateTimeString();
-            $submission['user_id'] = Auth::user()->id;
-            $submission['challenge_id'] = $flags['challenge_id']; //to do yo
-            $submission['text'] = $request['flag'];
+            $previously = Submitted_flag::select('user_id')->where('text', $request['flag'])->where('user_id', Auth::user()->id)->get();
 
-            Submitted_flag::create($submission);
-            return redirect('flags/submit')->with('message', 'Correct!');
+            $previously = $previously->toArray();
+            var_dump($previously);
+            if(empty($previously))
+            {
+                $flags = $flags->toArray();
+                $submission['created_at'] = Carbon::now()->toDateTimeString();
+                $submission['updated_at'] = Carbon::now()->toDateTimeString();
+                $submission['user_id'] = Auth::user()->id;
+                $submission['challenge_id'] = $flags['challenge_id']; //to do yo
+                $submission['text'] = $request['flag'];
+
+                Submitted_flag::create($submission);
+                
+                return redirect('flags/submit')->with('message', 'Correct!');
+
+            }
+            $message = 'You have previously submitted this flag!';
+            return redirect('flags/submit')->with('message', $message);
+            
         }
 
 

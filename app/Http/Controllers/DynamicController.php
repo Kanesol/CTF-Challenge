@@ -24,7 +24,7 @@ class DynamicController extends Controller
     }
 
     public function index () {
-
+        var_dump(Auth::user()->id);
         $num_users = User::count();
         $completed = Submitted_flag::count();
         $num_challenges = Challenge::count();

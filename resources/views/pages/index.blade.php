@@ -61,6 +61,7 @@
             <li>Phython script for patching executables: stalkr.net/files/ida/idadif.py</li>
             <li>Olly Debug: http://www.ollydbg.de/download.htm</li>
             <li>Crypt Tool: https://www.cryptool.org/en/ </li>
+            <li>JPHide: http://io.acad.athabascau.ca/~grizzlie/Comp607/jphs05.zip </li>
             <li>Google</li>
         </ul>
 
