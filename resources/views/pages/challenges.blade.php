@@ -7,32 +7,32 @@
 
 
 
+        @foreach($data['categories'] as $category)
+            <h2 class="sub-header">{{$category['name']}}</h2>
 
-        <h2 class="sub-header">Tier One</h2>
 
-
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>
-                            Type
-                        </th>
-                        <th>
-                           Title
-                        </th>
-                        <th>
-                            Points
-                        </th>
-                        <th>
-                            Description
-                        </th>
-                        <th>
-                            Link
-                        </th>
-                    </tr>
-                </thead>
-                @foreach($data['categories'] as $category)
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                               Title
+                            </th>
+                            <th>
+                                Points
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Link
+                            </th>
+                        </tr>
+                    </thead>
+                
                     
                         
                         @foreach($category['challenges'] as $challenge)
@@ -58,8 +58,9 @@
                         </tr>
                         @endforeach
                     
-                @endforeach
-            </table>
+               </table>
+               @endforeach
+            
         </div>
 
 
