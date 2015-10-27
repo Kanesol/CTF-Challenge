@@ -1,12 +1,12 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -20,11 +20,8 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
     protected $redirectTo = '/';
-
     /**
      * Create a new authentication controller instance.
      *
@@ -34,7 +31,6 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -45,11 +41,9 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users|regex:/(.*)suncorp\.com\.au$/i',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|regex:/Y15CTFSUN$/i|min:6',
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -60,8 +54,37 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /*public function postLogin(Request $request)
+    {
+         $validation = $this->validate($request, [
+                'name' => 'required', 
+                            'password' => 'required',
+            ]);
+         if($validation->fails()){
+             return back()->withInput();
+         }
+
+      $input = $request->only(['name', 'password']);
+            if($this->auth->attempt($input)){
+                return redirect()->intended($this->redirectPath());
+            }
+        return redirect->back()->withInput();
+    }*/
+
+    public function postLogin(Request $request)
+    {
+        if (Auth::attempt($request->only('name', 'password')))
+        {
+            return redirect('/');
+        }
+ 
+        return redirect('/auth/login')->withErrors([
+            'email' => "Error is" . $request . ";",
+        ]);
+    }
+
 }

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Suncorp CTF 2015</title>
+    <title>CTF 2015</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Suncorp CTF 2015</a>
+            <a class="navbar-brand" href="/">CTF 2015</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -57,7 +57,6 @@
                 <li><a href="/challenges">Challenges</a></li>
                 <li><a href="/flags/submit">Submit Flag</a></li>
                 <li><a href="/scoreboard">Scoreboard</a></li>
-                <li><a href="/auth/register">Register</a></li>
             </ul>
         </div>
 

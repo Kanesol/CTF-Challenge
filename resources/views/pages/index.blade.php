@@ -62,6 +62,8 @@
             <li>Olly Debug: http://www.ollydbg.de/download.htm</li>
             <li>Crypt Tool: https://www.cryptool.org/en/ </li>
             <li>JPHide: http://io.acad.athabascau.ca/~grizzlie/Comp607/jphs05.zip </li>
+            <li>A hex editor: http://sourceforge.net/projects/hexplorer/ </li>
+            <li>Packet Viewer: https://www.wireshark.org/ and http://www.netresec.com/?page=NetworkMiner</li>
             <li>Google</li>
         </ul>
 
