@@ -46,7 +46,7 @@
                             </td>
                             <td class="col-md-1">
                                 @foreach($data['files'] as $filename)
-                                    @if (strpos($filename, $challenge['id'], 0) === 0)
+                                    @if (strcmp(explode('.', $filename)[0], $challenge['id']) === 0)
 
                                         {!! link_to('/Challenges_Repo/'.$filename, 'Link') !!}
                                     @endif
