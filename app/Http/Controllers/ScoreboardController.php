@@ -86,6 +86,10 @@ class ScoreboardController extends Controller
         //
     }
 
+    public function __construct () {
+        $this->middleware('auth');
+    }
+
     public function scoreboard (){
 
         $results = DB::select( DB::raw("select users.name as name, sum(challenges.point_value) as Total from users
