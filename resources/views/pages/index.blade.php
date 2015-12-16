@@ -42,10 +42,11 @@
 
         <h3>What types of Challenges are on offer?</h3><br>
 
-        RE - Reverse Engineering, these challenges require you to take apart a program, understand it's componets and occasionally change the program logic! <br>
+        Reverse Engineering - RE, these challenges require you to take apart a program, understand it's componets and occasionally change the program logic! <br>
         Crypto - Cryptographic Challenge, these challenges require you to solve a challenge that is based on cryptography<br>
+        Forensics - Detective like challenges to test your digital forensic capability. <br>
         Web - Web based challenges, these are your more familar web based challenges such as those listed in the OWASP top 10<br>
-        Triva - a set of question based challenges to test your triva knowledge (Google is allowed)<br>
+        Triva - a set of question based challenges to test your triva knowledge (Google is allowed). These are submitted without the flag{} sytax<br>
 
         <h3>Terms and Conditions</h3>
         Please be aware of some conditions when participating in these events: <br>

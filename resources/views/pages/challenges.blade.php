@@ -16,9 +16,6 @@
                     <thead>
                         <tr>
                             <th>
-                                Type
-                            </th>
-                            <th>
                                Title
                             </th>
                             <th>
@@ -37,17 +34,17 @@
                         
                         @foreach($category['challenges'] as $challenge)
                         <tr>
-                            <td>{{$category['name']}}</td>
-                            <td>
-                                {{$challenge['name']}}
+                            
+                            <td class="col-md-2">
+                                {!!nl2br($challenge['name'])!!}
                             </td>
-                            <td>
+                            <td class="col-md-1">
                                 {{$challenge['point_value']}}
                             </td>
-                            <td>
-                                {{$challenge['description']}}
+                            <td class="col-md-3">
+                                {!!nl2br($challenge['description'])!!}
                             </td>
-                            <td>
+                            <td class="col-md-1">
                                 @foreach($data['files'] as $filename)
                                     @if (strpos($filename, $challenge['id'], 0) === 0)
 
