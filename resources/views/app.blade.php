@@ -53,10 +53,10 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="/challenges">Challenges</a></li>
-                <li><a href="/flags/submit">Submit Flag</a></li>
-                <li><a href="/scoreboard">Scoreboard</a></li>
+                <li {{ Request::is('/') ? ' class=active' : null }}><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+                <li {{ Request::is('challenges') ? ' class=active' : null }}><a href="/challenges">Challenges</a></li>
+                <li {{ Request::is('flags/submit') ? ' class=active' : null }}><a href="/flags/submit">Submit Flag</a></li>
+                <li {{ Request::is('scoreboard') ? ' class=active' : null }}><a href="/scoreboard">Scoreboard</a></li>
             </ul>
         </div>
 
