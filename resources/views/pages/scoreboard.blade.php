@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h1>Scoreboard for {{$data['game']->name}}</h1>
+    <h1>Scoreboard</h1>
 
     <div class="table-responsive">
         <table class="table table-striped">

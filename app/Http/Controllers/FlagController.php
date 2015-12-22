@@ -16,6 +16,7 @@ use App\User;
 use App\Challenge;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use File;
 //use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\SubmitFlagRequest;
@@ -61,6 +62,13 @@ class FlagController extends Controller
             
         }
 
+        $filename = "../storage/failed.csv";
+        $content = Auth::user()->name . "," . $request['flag'] . "\n\r";
+        $bytesWritten = File::append($filename, $content);
+        if ($bytesWritten === false)
+        {
+            die("Couldn't write to the file.");
+        }
 
         return redirect('flags/submit')->with('message', 'Incorrect, sorry try again!');
     }

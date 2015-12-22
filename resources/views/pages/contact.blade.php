@@ -1,6 +1,6 @@
 @extends('app')
 
 @section('content')
-    <h1>Contact me</h1>
-    security@suncorp.com.au
+    <h1>Help?!!!!</h1>
+    There is no help!
 @stop

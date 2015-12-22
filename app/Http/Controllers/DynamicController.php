@@ -24,14 +24,18 @@ class DynamicController extends Controller
     }
 
     public function index () {
-        var_dump(Auth::user()->id);
+        
         $num_users = User::count();
         $completed = Submitted_flag::count();
         $num_challenges = Challenge::count();
 
+
+
+
         $average_c = ( $completed / $num_users) / $num_challenges * 100;
 
-        $stats = array('num_users' => $num_users, 'completed' => $completed, 'average' => $average_c);
+
+        $stats = array('num_users' => $num_users, 'completed' => $completed, 'average' => (int)$average_c);
 
         $game = Game::first();
         $categories = Category::get();

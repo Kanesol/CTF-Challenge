@@ -25,6 +25,16 @@
     @endif
 
     @if(null != Session::get('message'))
+        @if(Session::get('message') == "Incorrect, sorry try again!")
+            <ul class="alert alert-danger">
+
+                <li>
+                    {{Session::get('message')}}
+                </li>
+
+            </ul>
+
+        @else
 
             <ul class="alert alert-success">
 
@@ -33,6 +43,7 @@
                     </li>
 
             </ul>
+        @endif
 
     @endif
 

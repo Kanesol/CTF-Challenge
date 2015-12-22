@@ -40,7 +40,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required|max:7',
             'password' => 'required|regex:/Y15CTFSUN$/i|min:6',
         ]);
     }

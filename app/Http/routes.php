@@ -23,8 +23,6 @@ Route::get('/', "DynamicController@index");
 
 Route::get('contact', "GenericStaticController@contact" );
 
-Route::get('about', 'GenericStaticController@about');
-
 Route::get('scoreboard', 'ScoreboardController@scoreboard');
 
 Route::get('flags/submit', 'FlagController@submit');
