@@ -83,7 +83,7 @@ class AuthController extends Controller
         }
  
         return redirect('/auth/login')->withErrors([
-            'email' => "Error is" . $request . ";",
+            'email' => "Error",
         ]);
     }
 
