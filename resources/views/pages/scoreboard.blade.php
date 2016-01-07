@@ -13,6 +13,9 @@
                 <th>
                     Score
                 </th>
+                <th>
+                    Last Submit
+                </th>
             </tr>
             </thead>
             @foreach($data['scores'] as $score)
@@ -22,6 +25,9 @@
                     </td>
                     <td>
                         {{$score->Total}}
+                    </td>
+                                        <td>
+                        {{$score->time}}
                     </td>
                 </tr>
 

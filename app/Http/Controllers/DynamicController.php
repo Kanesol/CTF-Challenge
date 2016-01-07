@@ -79,6 +79,8 @@ class DynamicController extends Controller
 
         $stats = array('num_users' => $num_users, 'completed' => $completed, 'average' => $average_c);
 
+        $mycompleted = Submitted_flag::where('user_id', Auth::user()->id)->get()->toArray();
+        
         $game = Game::first();
         $categories = Category::get();
         $categories = $categories->toArray();
@@ -94,7 +96,7 @@ class DynamicController extends Controller
         $files = scandir($directory);
 
 
-        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories, 'stats' => $stats, 'files' => $files);
+        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories, 'stats' => $stats, 'files' => $files, 'completed' => $mycompleted);
 
         
         return view("pages.challenges")->with('data', $data);

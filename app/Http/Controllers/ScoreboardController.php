@@ -92,13 +92,13 @@ class ScoreboardController extends Controller
 
     public function scoreboard (){
 
-        $results = DB::select( DB::raw("select users.name as name, sum(challenges.point_value) as Total from users
+        $results = DB::select( DB::raw("select users.name as name, sum(challenges.point_value) as Total, submitted_flags.created_at as time from users
                                         inner join submitted_flags
                                         on submitted_flags.user_id = users.id
                                         inner join challenges
                                         on challenges.id = submitted_flags.challenge_id
                                         group by users.name
-                                        order by Total DESC"));
+                                        order by Total DESC, submitted_flags.created_at "));
 
         $game = Game::first();
 
