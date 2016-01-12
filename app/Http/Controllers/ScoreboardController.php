@@ -7,6 +7,7 @@ use App\Game;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Carbon\Carbon;
 
 class ScoreboardController extends Controller
 {
@@ -91,6 +92,12 @@ class ScoreboardController extends Controller
     }
 
     public function scoreboard (){
+
+        $results = DB::table('Games')->select('start')->first();
+        
+        if( $results->start > Carbon::now() ){
+            return view("pages.countdown");
+        }
 
         $results = DB::select( DB::raw("select users.name as name, sum(challenges.point_value) as Total, submitted_flags.created_at as time from users
                                         inner join submitted_flags

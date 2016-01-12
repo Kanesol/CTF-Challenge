@@ -20,6 +20,7 @@ use File;
 //use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\SubmitFlagRequest;
+use DB;
 
 class FlagController extends Controller
 {
@@ -28,11 +29,28 @@ class FlagController extends Controller
     }
 
     public function submit (){
+        $startd = DB::table('Games')->select('start')->first();
+        $endd = DB::table('Games')->select('stop')->first();
+        
+        if( $startd->start > Carbon::now() ){
+            return view("pages.countdown");
+        }elseif($endd->stop < Carbon::now()){
+            return view('pages.closed');
+        }
 
         return view('flags.submit');
     }
 
     public function store (SubmitFlagRequest $request){
+        
+        $startd = DB::table('Games')->select('start')->first();
+        $endd = DB::table('Games')->select('stop')->first();
+        
+        if( $startd->start > Carbon::now() ){
+            return view("pages.countdown");
+        }elseif($endd->stop < Carbon::now()){
+            return view('pages.closed');
+        }
 
         $request = $request->all();
         $flags = Flag::where('flag', $request['flag'])->first();

@@ -16,6 +16,8 @@ use App\Challenge;
 use App\Http\Controllers\Controller;
 use Auth;
 use Storage;
+use DB;
+use Carbon\Carbon;
 
 class DynamicController extends Controller
 {
@@ -25,23 +27,26 @@ class DynamicController extends Controller
 
     public function index () {
         
+        $startd = DB::table('Games')->select('start')->first();
+        $endd = DB::table('Games')->select('stop')->first();
+        
+        if( $startd->start > Carbon::now() ){
+            return view("pages.countdown");
+        }elseif($endd->stop < Carbon::now()){
+            return view('pages.closed');
+        }
+
         $num_users = User::count();
         $completed = Submitted_flag::count();
         $num_challenges = Challenge::count();
 
-
-
-
         $average_c = ( $completed / $num_users) / $num_challenges * 100;
-
 
         $stats = array('num_users' => $num_users, 'completed' => $completed, 'average' => (int)$average_c);
 
         $game = Game::first();
         $categories = Category::get();
         $categories = $categories->toArray();
-
-
 
         foreach($categories as $category)
         {
@@ -59,19 +64,16 @@ class DynamicController extends Controller
 
 
     public function challenges () {
-        /*$game = Game::first();
-        $categories = Category::get();
-        $categories = $categories->toArray();
-
-        foreach($categories as $category)
-        {
-            $challenges = Challenge::where('category_id', $category['id'])->get()->toArray();
-            $categories[(int)$category['id'] - 1]['challenges'] =  $challenges;
+        $startd = DB::table('Games')->select('start')->first();
+        $endd = DB::table('Games')->select('stop')->first();
+        
+        if( $startd->start > Carbon::now() ){
+            return view("pages.countdown");
+        }elseif($endd->stop < Carbon::now()){
+            return view('pages.closed');
         }
 
-
-        $data = array('game' => $game, 'categories' => $categories);*/
-                $num_users = User::count();
+        $num_users = User::count();
         $completed = Submitted_flag::count();
         $num_challenges = Challenge::count();
 

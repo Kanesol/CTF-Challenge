@@ -26,7 +26,19 @@ Route::post('flags', 'FlagController@store');
 
 Route::get('challenges', 'DynamicController@challenges');
 
+Route::get('api/get_start', function(){
+	$results = DB::table('Games')->select('start')->first();
+	return $results->start;
+});
 
+Route::get('api/get_finish', function(){
+	$results = $results = DB::table('Games')->select('stop')->first();
+	return $results->stop;
+});
+
+Route::get('countdown', function(){
+	return view("pages.countdown");
+});
 
 
 // Authentication routes...

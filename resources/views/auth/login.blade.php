@@ -43,7 +43,9 @@
                                     </button>
                                 </div>
                             </div>
+
                         </form>
+                        To register click <a href="/auth/register">here</a>
                     </div>
                 </div>
             </div>

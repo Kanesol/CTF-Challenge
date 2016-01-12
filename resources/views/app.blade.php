@@ -14,6 +14,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template -->
     <link href='{{URL::asset("dashboard.css")}}' rel="stylesheet">
@@ -52,6 +53,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li id="countdown1"></li>
                 <li><a href="/auth/logout">Log Out</a></li>
                 <li><a href="/contact">Help</a></li>
             </ul>
@@ -88,6 +90,51 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
+
+<script>
+
+;
+$.get( "/api/get_finish", function( data ) {
+
+        
+    // set the date we're counting down to
+    var target_date = new Date(data).getTime();//new Date('Jan, 31, 2016').getTime();
+    console.log(new Date(data).getTime());
+
+    // variables for time units
+    var days, hours, minutes, seconds;
+     
+    // get tag element
+    var countdown = document.getElementById('countdown1');
+
+    // update the tag with id "countdown" every 1 second
+    setInterval(function () {
+     
+        
+        // find the amount of "seconds" between now and target
+        var current_date = new Date().getTime();
+        console.log(current_date);
+        console.log(target_date);
+        var seconds_left = (target_date - current_date) / 1000;
+        
+        // do some time calculations
+        days = parseInt(seconds_left / 86400);
+        seconds_left = seconds_left % 86400;
+         
+        hours = parseInt(seconds_left / 3600);
+        seconds_left = seconds_left % 3600;
+         
+        minutes = parseInt(seconds_left / 60);
+        seconds = parseInt(seconds_left % 60);
+         
+        // format countdown string + set tag value
+        countdown.innerHTML = '<a> <b>Time Remaining:</b> ' + days +  ' <b>Days</b> ' + hours + ' <b>Hours</b> ' + minutes + ' <b>Minutes</b> ' + seconds + ' <b>Seconds</b> ' + '</a>';  
+     
+    }, 1000);
+
+});
+</script>
+
 </html>
 
 
