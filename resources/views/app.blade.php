@@ -53,7 +53,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li id="countdown1"></li>
+
                 @yield('log')
 
                 <li><a href="/contact">Help</a></li>

@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('log')
+	<li id="countdown1"></li>
     @if(isset($user))
         <li><a href="/auth/login">Log In</a></li>
     @else
