@@ -91,7 +91,7 @@ class DynamicController extends Controller
 
         foreach($categories as $category)
         {
-            $challenges = Challenge::where('category_id', $category['id'])->get()->toArray();
+            $challenges = Challenge::where('category_id', $category['id'])->orderby('point_value', 'ASC')->get()->toArray();
             $categories[(int)$category['id'] - 1]['challenges'] =  $challenges;
         }
         $directory = base_path().'/public/Challenges_Repo/';
