@@ -119,12 +119,13 @@ body {
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  color: #006f66;
 }
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #fff; /*sidebar text color */
-  background-color: #428bca;
+  color: #333; /*sidebar text color */
+  background-color: #e1eeed;
 }
 
 

@@ -30,9 +30,7 @@ class DynamicController extends Controller
         $startd = DB::table('Games')->select('start')->first();
         $endd = DB::table('Games')->select('stop')->first();
         
-        if( $startd->start > Carbon::now() ){
-            return view("pages.countdown");
-        }elseif($endd->stop < Carbon::now()){
+        if($endd->stop < Carbon::now()){
             return view('pages.closed');
         }
 
@@ -57,7 +55,13 @@ class DynamicController extends Controller
         $files = scandir($directory);
 
 
-        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories,'stats' => $stats, 'files' => $files);
+       if( $startd->start > Carbon::now() ){
+            $start = true;
+        }else{
+            $start = false;
+        }
+
+        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories,'stats' => $stats, 'files' => $files, 'start'=> $start);
 
         return view("pages.index")->with('data', $data);
     }
