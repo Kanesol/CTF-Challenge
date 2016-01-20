@@ -61,21 +61,7 @@
         Please be aware of some conditions when participating in these events: <br>
         <ul>
             <li>Do not perform any activity that is detrimental to the enjoyment of others </li>
-            <li>If you do find a vulnerability that is not related to the challenges (there is a good chance there are
-                some!), do not exploit it to gain advantage. Submit it to get bonus points! </li>
-        </ul>
-
-        <h3>Helpful links and tools</h3>
-        <ul>
-            <li><a href='https://www.hex-rays.com/products/ida/support/download_freeware.shtml'>Ida pro free</a></li>
-            <li><a href='http://stalkr.net/files/ida/idadif.py'>Phython script for patching executables </a> </li>
-            <li><a href='http://www.ollydbg.de/download.htm'> Olly Debug </a> </li>
-            <li><a href='https://www.cryptool.org/en/'>Crypt Tool </a> </li>
-            <li><a href='http://io.acad.athabascau.ca/~grizzlie/Comp607/jphs05.zip'>JPHide</a> </li>
-            <li><a href=' http://sourceforge.net/projects/hexplorer/'> A hex editor </a> </li>
-            <li><a href='https://www.wireshark.org/'> Packet Analysis </a> </li>
-            <li><a href='http://www.netresec.com/?page=NetworkMiner'> Packet Analysis </a></li>
-            <li><a href='http://www.google.com'>Google</a></li>
+            <li>If you do find a vulnerability that is not related to the challenges, do not exploit it to gain advantage. Submit it to get bonus points! </li>
         </ul>
 
 
