@@ -109,7 +109,15 @@ class ScoreboardController extends Controller
 
         $game = Game::first();
 
-        $data = array('game' => $game, 'scores'=> $results);
+        $startd = DB::table('Games')->select('start')->first();
+        if( $startd->start > Carbon::now() ){
+            $start = true;
+        }else{
+            $start = false;
+        }
+
+
+        $data = array('game' => $game, 'scores'=> $results, 'start' => $start);
 
         return view('pages.scoreboard')->with('data', $data);
     }

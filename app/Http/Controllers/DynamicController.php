@@ -102,7 +102,14 @@ class DynamicController extends Controller
         $files = scandir($directory);
 
 
-        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories, 'stats' => $stats, 'files' => $files, 'completed' => $mycompleted);
+        $startd = DB::table('Games')->select('start')->first();
+        if( $startd->start > Carbon::now() ){
+            $start = true;
+        }else{
+            $start = false;
+        }
+
+        $data = array('user' => Auth::user() , 'game' => $game, 'categories' => $categories, 'stats' => $stats, 'files' => $files, 'completed' => $mycompleted, 'start'=>$start);
 
         
         return view("pages.challenges")->with('data', $data);
